@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class cmp
+{
+    public:
+        int real,img;
+        cmp(int r  =  0, int i = 0)
+        {
+            real = r;
+            img = i;
+        }
+        
+        cmp operator + (cmp  obj)
+        {
+            cmp res;
+            res.img = img + obj.img;
+            res.real = real + obj.real;
+            return res;
+        }
+        void display()
+        {
+             cout<<real<<" + j"<<img<<endl;
+        }
+};
+
+int main() 
+{
+    cmp c1(5,10);
+    cmp c2(10,5);
+    cmp c3 = c1 + c2;
+    c3.display();
+	return 0;
+}
