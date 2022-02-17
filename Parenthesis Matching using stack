@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+bool is_para_balanced(string s)
+{
+    stack<char> st;
+    for(int i = 0; i < s.size(); i ++)
+    {
+        if(s[i] == '(' or s[i] == '{' or s[i] == '[')
+            st.push(s[i]);
+            
+        if(st.empty())
+            return false;
+        else    
+        {
+            if(s[i] == ')' and st.top() == '(')
+            {
+                st.pop();
+            }
+            if(s[i] == '}' and st.top() == '{')
+            {
+                st.pop();
+            }
+            if(s[i] == ']' and st.top() == '[')
+            {
+                st.pop();
+            }
+        }
+    }
+    return true;
+}
+int main() 
+{
+    string s;
+    cin>>s;
+    cout<<is_para_balanced(s);
+	return 0;
+}
